@@ -31,12 +31,38 @@ To run this script you need to have at least one PSD file opened in Photoshop.
 
 You can open and process more than one file at same time. It only depends about your hardware power.
 
-## Versions
+## Custom Settings
+You can open the ps-join-txt-psd-v-X-X-X.jsx file and edit some settings. Here are the list with what you can change:
+```javascript	
+// Text Options
+var fontName = "Arial"; // [default = Arial]
+var fontSize = 16 //pts [default = 16]
+var fontColor = "000000" //hexadecimal format [default = 000000
+var fontJustification = "CENTER"
+
+// Text Box Options
+var useTextBox = true //true or false [default = true]= 100 //pixels [default = 100]
+var textBoxWidth = 100 //pixels [default = 100]
+var textBoxHeight = 100 //pixels [default = 100]
+var textBoxOriginX = 0 //pixels [default = 0]
+var textBoxOriginY = 0 //pixels [default = 0]
+var textBoxOffsetX = 50 //pixels [default = 50]
+var textBoxOffsetY = 50 //pixels [default = 50]
+
+// Layer Group Options
+var uselayerGroup = true //true or false [default = true]
+var layerGroupName = 'Text'
+var layerGroupColor = "blue"
+```
+
+
+## Changelog
 
 > 1.0.1 **[Current]**
 ````
 Add: 
 - Now Origin setting is avaliable in X and Y axis;
+
 Fix:
 - setLayerLabelCol() variables is now with correct names;
 - Text Box Offset don't double jump the second element anymore;
