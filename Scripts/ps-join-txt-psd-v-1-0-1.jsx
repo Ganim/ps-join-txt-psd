@@ -4,7 +4,7 @@
 /*
 |  Write by: Guilherme Ganim <guilhermeganim@hotmail.com>
 |  Find more at my Github: https://github.com/Ganim
-|  Version: 1.0.0
+|  Version: 1.0.1
 |  Last Test: Photoshop 25.4.0
 |
 |  How it works:
@@ -35,13 +35,14 @@ var fontJustification = "CENTER"
 var useTextBox = true //true or false [default = true]= 100 //pixels [default = 100]
 var textBoxWidth = 100 //pixels [default = 100]
 var textBoxHeight = 100 //pixels [default = 100]
-var textBoxOrigin = 50 //pixels [default = 50]
-var textBoxOffsetX = 100 //pixels [default = 100]
-var textBoxOffsetY = 100 //pixels [default = 100]
+var textBoxOriginX = 0 //pixels [default = 50]
+var textBoxOriginY = 0 //pixels [default = 50]
+var textBoxOffsetX = 50 //pixels [default = 100]
+var textBoxOffsetY = 50 //pixels [default = 100]
 
 // Layer Group Options
 var uselayerGroup = true //true or false [default = true]
-var layerGroupName = 'Type'
+var layerGroupName = 'Text'
 var layerGroupColor = "blue"
 /*
 |  Color name options:
@@ -101,14 +102,17 @@ if (app.documents.length > 0) {
 
       if (textFile != null) {
         textFile.open('r');
+        var textLine = textFile.readln();
 
         var documentRef = activeDocument;
         var pointerRef = null;
         var layerRef = null;
         var textRef = null;
 
-        var textLine = textFile.readln();
-        var origin = textBoxOrigin;
+        // Set Position
+        var positionX = textBoxOriginX
+        var positionY = textBoxOriginY
+        
 
         // Apply Layer Group Settings
         if(uselayerGroup === true){
@@ -124,6 +128,7 @@ if (app.documents.length > 0) {
 
         //read in text one line at a time
         while (textLine != '') { 
+          
           layerRef = pointerRef.artLayers.add();
           layerRef.kind = LayerKind.TEXT;
           textRef = layerRef.textItem;
@@ -134,7 +139,13 @@ if (app.documents.length > 0) {
             textRef.width = new UnitValue(textBoxWidth, 'px');
             textRef.height = new UnitValue(textBoxHeight, 'px');
           }
-          textRef.position = new Array(origin + textBoxOffsetX, origin + textBoxOffsetY);
+          
+          textRef.position = new Array(positionX, positionY);
+
+          positionX = positionX + textBoxOffsetX
+          positionY = positionY + textBoxOffsetY
+ 
+
           textRef.contents = textLine;
 
           // Apply custom style settings
@@ -176,6 +187,7 @@ if (app.documents.length > 0) {
           // End custom style settings
 
           textLine = textFile.readln();
+          
         }
         
 
@@ -235,9 +247,9 @@ function setLayerLabelCol(colorName) {
   var descriptorOne = new ActionDescriptor();
   var descriptorTwo = new ActionDescriptor();
   var reference = new ActionReference();
-  reference.putEnumerated(stringToType("layer"), s2t("ordinal"), s2t("targetEnum"));
+  reference.putEnumerated(stringToType("layer"), stringToType("ordinal"), stringToType("targetEnum"));
   descriptorOne.putReference(chatToType("null"), reference);
-  descriptorTwo.putEnumerated(s2t("color"), s2t("color"), s2t(colorName));
-  descriptorOne.putObject(s2t("to"), s2t("layer"), descriptorTwo);
-  executeAction(s2t("set"), descriptorOne, DialogModes.NO);
+  descriptorTwo.putEnumerated(stringToType("color"), stringToType("color"), stringToType(colorName));
+  descriptorOne.putObject(stringToType("to"), stringToType("layer"), descriptorTwo);
+  executeAction(stringToType("set"), descriptorOne, DialogModes.NO);
 }

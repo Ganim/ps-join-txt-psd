@@ -33,14 +33,23 @@ You can open and process more than one file at same time. It only depends about 
 
 ## Versions
 
-> 1.0.0 **[Current]**
+> 1.0.1 **[Current]**
 ````
 Add: 
-- File Control
-- Font settings
-- Text Box settings
-- Layer Group setting
-- Layer Group color
+- Now Origin setting is avaliable in X and Y axis;
+Fix:
+- setLayerLabelCol() variables is now with correct names;
+- Text Box Offset don't double jump the second element anymore;
+````
+
+> 1.0.0
+````
+Add: 
+- File Control;
+- Font settings;
+- Text Box settings;
+- Layer Group setting;
+- Layer Group color;
 ````
 
 ## Contributing
