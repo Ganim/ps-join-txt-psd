@@ -26,15 +26,15 @@
 //================================================================
 
 // Text Options
-var primaryFontName = "Arial Regular"; // [default = Arial]
+var primaryFontName = "Arial Regular"; // [default = Arial Regular]
 var primaryFontSize = 16 //pts [default = 16]
-var primaryFontColor = "000000" //hexadecimal format [default = 000000
+var primaryFontColor = "000000" //hexadecimal format [default = 000000]
 var primaryFontJustification = "LEFT"
 
-var secondaryFontIdentifier = "*"; // [default = Arial]
-var secondaryFontName = "CCZoinks-Regular"; // [default = Arial]
-var secondaryFontSize = 12 //pts [default = 16]
-var secondaryFontColor = "000000" //hexadecimal format [default = 000000
+var secondaryFontIdentifier = "*"; // [default = *]
+var secondaryFontName = "Times New Roman Regular"; // [default = Times New Roman Regular]
+var secondaryFontSize = 12 //pts [default = 12]
+var secondaryFontColor = "000000" //hexadecimal format [default = 000000]
 var secondaryFontJustification = "CENTER"
 
 // Text Box Options
