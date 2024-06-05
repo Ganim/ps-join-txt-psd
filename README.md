@@ -1,5 +1,9 @@
 # Photoshop auto join TXT and PSD files
 
+![Version](https://img.shields.io/badge/Version-1.1.0-blue?style=for-the-badge)
+
+![Lang](https://img.shields.io/badge/Javascript-gray?style=for-the-badge&logo=javascript)
+
 This is an Photoshop script that automates the process of joining text files (.txt) with Photoshop files (.psd) in a batch manner. Each TXT line will generate an Text Box in Photoshop file with same name.
 
 ## Installation and Usage
@@ -35,10 +39,16 @@ You can open and process more than one file at same time. It only depends about 
 You can open the ps-join-txt-psd-v-X-X-X.jsx file and edit some settings. Here are the list with what you can change:
 ```javascript	
 // Text Options
-var fontName = "Arial"; // [default = Arial]
-var fontSize = 16 //pts [default = 16]
-var fontColor = "000000" //hexadecimal format [default = 000000
-var fontJustification = "CENTER"
+var primaryFontName = "Arial Regular"; // [default = Arial]
+var primaryFontSize = 16 //pts [default = 16]
+var primaryFontColor = "000000" //hexadecimal format [default = 000000
+var primaryFontJustification = "LEFT"
+
+var secondaryFontIdentifier = "*"; // [default = Arial]
+var secondaryFontName = "CCZoinks-Regular"; // [default = Arial]
+var secondaryFontSize = 12 //pts [default = 16]
+var secondaryFontColor = "000000" //hexadecimal format [default = 000000
+var secondaryFontJustification = "CENTER"
 
 // Text Box Options
 var useTextBox = true //true or false [default = true]= 100 //pixels [default = 100]
@@ -58,7 +68,15 @@ var layerGroupColor = "blue"
 
 ## Changelog
 
-> 1.0.1 **[Current]**
+> 1.1.0 **[Current]**
+````
+Add: 
+- Now a secondary font style can be setted and used;
+- Readme file now shows the project roadmap;
+
+````
+
+> 1.0.1
 ````
 Add: 
 - Now Origin setting is avaliable in X and Y axis;
@@ -77,6 +95,17 @@ Add:
 - Layer Group setting;
 - Layer Group color;
 ````
+
+## Roadmap
+
+- [X] - 1.0 - Create a functional script
+- [X] - 1.1 - Add Secondary Font Style
+- [ ] - 1.2 - Add Save and Close files config
+- [ ] - 1.3 - Add Infinity font style support **[Review Data Structure]**
+- [ ] - 1.4 - Add dialog with processbar information
+- [ ] - 1.5 - Add search folder dialog to process files without open 
+- [ ] - 2.0 - Add Interface
+
 
 ## Contributing
 
