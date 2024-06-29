@@ -72,7 +72,7 @@ var newFileSuffix = ""; // keep blank to use same name [default = '_edit']
 //================================================================
 // Don't change the code below
 //================================================================
-
+app.displayDialogs = DialogModes.NO;
 // Validations
 if(folderOutput.length === 0){
   folderOutput = "/"
@@ -80,12 +80,24 @@ if(folderOutput.length === 0){
 
 // #target photoshop
 
-if (app.documents.length > 0) {
+var inputFolder = Folder.selectDialog("Please select folder to process ")
 
-  for (var i = 0; i < app.documents.length; i++) {
-    var psd = app.documents[i];
+//if (inputFolder !== null){
 
-    app.activeDocument = psd;
+var fileList = inputFolder.getFiles(/.psd$/i)
+
+if (fileList.length > 0) {
+for (var file in fileList) {
+
+  // open(fileList)
+  
+
+  
+  open(fileList[file])
+  //for (var i = 0; i < fileList.length; i++) {
+    var psd = app.activeDocument;
+
+    //app.activeDocument = psd;
 
     // Actual file info
     var psdPath = psd.path + "/";
